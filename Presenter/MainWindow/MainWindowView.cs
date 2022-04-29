@@ -7,16 +7,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Common;
 
 namespace MainWindow
 {
     public class MainWindowView:MainWindowUi
     {
-        public TextBox label;
-        public TextBlock label2;
         public MainWindowView()
         {
-            ShowDialog();
+        //    this.WindowState = WindowState.Maximized;
         }
     }
 }
