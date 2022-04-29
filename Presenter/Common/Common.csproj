@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFD5CD7F-4B9A-4A00-937E-C4657E012397}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Platform</RootNamespace>
-    <AssemblyName>Platform</AssemblyName>
+    <ProjectGuid>{9BC919A6-3F60-4179-9709-5C21AC97ADDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -46,26 +44,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hosting.cs" />
-    <Compile Include="Launcher.cs" />
+    <Compile Include="MainGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Presenter\Common\Common.csproj">
-      <Project>{9BC919A6-3F60-4179-9709-5C21AC97ADDC}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Presenter\ImageLabellingArea\ImageLabellingArea.csproj">
-      <Project>{151c494c-3ccc-4d0a-babd-a65ec1da1120}</Project>
-      <Name>ImageLabellingArea</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Presenter\MainWindow\MainWindow.csproj">
-      <Project>{6c531dc5-763e-4008-ad10-51c99c64a3ed}</Project>
-      <Name>MainWindow</Name>
-    </ProjectReference>
+    <Compile Include="WindowBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
