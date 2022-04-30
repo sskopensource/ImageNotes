@@ -7,33 +7,35 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using UiEnums;
 
 namespace ImageLabellingArea
 {
+
     public class ImageLabellingRegion:Canvas
     {
-        private ImageLabel label;
+        private ImageLabelControl labelControl;
         private UIElement dragObject =null;
-        public LabelState labelState;
+        public UiEnums.LabelState labelState;
         private Point pt;
 
         public ImageLabellingRegion(MainGrid parent)
         {
-            label = new ImageLabel(this);
+            labelControl = new ImageLabelControl(this);
             this.Background = System.Windows.Media.Brushes.White;
-            this.Children.Add(label);
+            this.Children.Add(labelControl.GetView());
             parent.Children.Add(this);
             parent.SetLabelRegion(this);
             SetCursorDefaultPosition();
-            label.PreviewMouseDown += Drag;
+            labelControl.GetView().PreviewMouseDown += Drag;
             this.PreviewMouseMove += Move;
             this.PreviewMouseUp += Release;
         }
 
         private void SetCursorDefaultPosition()
         {
-            SetTop(label, 0);
-            SetTop(label, 0);
+            SetTop(labelControl.GetView(), 0);
+            SetTop(labelControl.GetView(), 0);
         }
         private void Release(object sender, MouseButtonEventArgs e)
         {
@@ -62,7 +64,7 @@ namespace ImageLabellingArea
             {
                 return;
             }
-            pt.X = e.GetPosition(label).X;
+            pt.X = e.GetPosition(labelControl.GetView()).X;
             this.dragObject = sender as UIElement;
             this.CaptureMouse();
         }

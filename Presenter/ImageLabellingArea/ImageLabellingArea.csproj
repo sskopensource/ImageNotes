@@ -46,11 +46,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImageLabel.cs" />
+    <Compile Include="ImageLabelControl.cs" />
     <Compile Include="ImageLabellingRegion.cs" />
+    <Compile Include="ImageLabelModel.cs" />
     <Compile Include="ImageLabelRegionController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\Include\Include.csproj">
+      <Project>{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}</Project>
+      <Name>Include</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Application\LabellingResources\LabellingResources.csproj">
+      <Project>{1e14ebdd-d458-490e-84b3-a922f91742b6}</Project>
+      <Name>LabellingResources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{9BC919A6-3F60-4179-9709-5C21AC97ADDC}</Project>
       <Name>Common</Name>
