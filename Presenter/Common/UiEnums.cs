@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common
+namespace UiEnums
 {
-    public class WindowBase
+    public enum LabelState
     {
-
+        Select,
+        Anchor,
+        Drag,
+        Move,
+        None
     }
 }

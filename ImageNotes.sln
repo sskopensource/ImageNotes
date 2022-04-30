@@ -17,6 +17,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageLabellingArea", "Prese
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Presenter\Common\Common.csproj", "{9BC919A6-3F60-4179-9709-5C21AC97ADDC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0F32C230-2FC5-4857-8BD8-0B2B26560A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labelling", "Application\Labelling\Labelling.csproj", "{51200738-40DA-4BD9-AAAD-351BBFEA667C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabellingResources", "Application\LabellingResources\LabellingResources.csproj", "{1E14EBDD-D458-490E-84B3-A922F91742B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Include", "Application\Include\Include.csproj", "{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{65233F27-3D91-4DF5-8961-6DCFBF15F776}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +56,18 @@ Global
 		{9BC919A6-3F60-4179-9709-5C21AC97ADDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BC919A6-3F60-4179-9709-5C21AC97ADDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BC919A6-3F60-4179-9709-5C21AC97ADDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51200738-40DA-4BD9-AAAD-351BBFEA667C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51200738-40DA-4BD9-AAAD-351BBFEA667C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51200738-40DA-4BD9-AAAD-351BBFEA667C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51200738-40DA-4BD9-AAAD-351BBFEA667C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E14EBDD-D458-490E-84B3-A922F91742B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E14EBDD-D458-490E-84B3-A922F91742B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E14EBDD-D458-490E-84B3-A922F91742B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E14EBDD-D458-490E-84B3-A922F91742B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +78,9 @@ Global
 		{454E1204-2718-447B-AB2C-D714B7829388} = {4709E2D9-5C89-46F4-A248-69559EDFFC49}
 		{151C494C-3CCC-4D0A-BABD-A65EC1DA1120} = {4709E2D9-5C89-46F4-A248-69559EDFFC49}
 		{9BC919A6-3F60-4179-9709-5C21AC97ADDC} = {4709E2D9-5C89-46F4-A248-69559EDFFC49}
+		{51200738-40DA-4BD9-AAAD-351BBFEA667C} = {0F32C230-2FC5-4857-8BD8-0B2B26560A68}
+		{1E14EBDD-D458-490E-84B3-A922F91742B6} = {0F32C230-2FC5-4857-8BD8-0B2B26560A68}
+		{EAB6800F-9107-4D53-B0DD-AD5B11C6521D} = {0F32C230-2FC5-4857-8BD8-0B2B26560A68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E31E61F8-2C7F-456F-B22F-00D3FB75EEEF}

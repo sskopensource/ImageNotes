@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using UiEnums;
 
 namespace ImageLabellingArea
 {
+
     public class ImageLabellingRegion:Canvas
     {
         private ImageLabel label;
         private UIElement dragObject =null;
-        public LabelState labelState;
+        public UiEnums.LabelState labelState;
         private Point pt;
 
         public ImageLabellingRegion(MainGrid parent)

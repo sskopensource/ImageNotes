@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{151C494C-3CCC-4D0A-BABD-A65EC1DA1120}</ProjectGuid>
+    <ProjectGuid>{1E14EBDD-D458-490E-84B3-A922F91742B6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ImageLabellingArea</RootNamespace>
-    <AssemblyName>ImageLabellingArea</AssemblyName>
+    <RootNamespace>LabellingResources</RootNamespace>
+    <AssemblyName>LabellingResources</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,38 +31,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImageLabel.cs" />
-    <Compile Include="ImageLabellingRegion.cs" />
-    <Compile Include="ImageLabelModel.cs" />
-    <Compile Include="ImageLabelRegionController.cs" />
+    <Compile Include="LabellingResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Application\Include\Include.csproj">
+    <ProjectReference Include="..\Include\Include.csproj">
       <Project>{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}</Project>
       <Name>Include</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Application\LabellingResources\LabellingResources.csproj">
-      <Project>{1e14ebdd-d458-490e-84b3-a922f91742b6}</Project>
-      <Name>LabellingResources</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{9BC919A6-3F60-4179-9709-5C21AC97ADDC}</Project>
-      <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

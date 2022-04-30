@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="MainGrid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WindowBase.cs" />
+    <Compile Include="UiEnums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
