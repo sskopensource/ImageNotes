@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ImageLabellingArea;
 using System.Windows;
 using System.Threading;
+using Labelling;
 
 namespace Platform
 {
@@ -14,6 +15,8 @@ namespace Platform
     {
         public static MainWindowController mainWindow;
         public static ImageLabelRegionController region;
+        public static LabellingManager labellingMgr;
+
         public static void LoadComponet()
         {
             //Load main component
@@ -21,6 +24,8 @@ namespace Platform
             //Load labelRegion
             region = new ImageLabelRegionController(mainWindow.GetGridView());
             //Show main window
+
+            labellingMgr = new LabellingManager();
             mainWindow.GetView().ShowDialog();
         }
     }

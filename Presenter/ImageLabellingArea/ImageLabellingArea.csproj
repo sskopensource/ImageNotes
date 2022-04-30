@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImageLabel.cs" />
+    <Compile Include="ImageLabelControl.cs" />
     <Compile Include="ImageLabellingRegion.cs" />
     <Compile Include="ImageLabelModel.cs" />
     <Compile Include="ImageLabelRegionController.cs" />

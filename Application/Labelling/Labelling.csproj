@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LabellingManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Include\Include.csproj">
+      <Project>{eab6800f-9107-4d53-b0dd-ad5b11c6521d}</Project>
+      <Name>Include</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LabellingResources\LabellingResources.csproj">
+      <Project>{1e14ebdd-d458-490e-84b3-a922f91742b6}</Project>
+      <Name>LabellingResources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

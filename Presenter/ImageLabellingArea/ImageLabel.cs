@@ -14,11 +14,8 @@ namespace ImageLabellingArea
     public class ImageLabel:TextBox
     {
         ImageLabellingRegion _parent;
-        private ImageLabelModel model;
         public ImageLabel(ImageLabellingRegion parent)
         {
-            model = new ImageLabelModel();
-
             Height = 40;
             MinWidth = 20;
             Height = 40;
@@ -45,6 +42,7 @@ namespace ImageLabellingArea
 
         private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
+            //Post Event
             LabellingResources.ActiveLabel.SetActiveLabelText(Text);
         }
 

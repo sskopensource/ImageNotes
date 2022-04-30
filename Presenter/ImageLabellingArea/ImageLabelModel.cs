@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace ImageLabellingArea
 {
 
-    class ImageLabelModel
+    public class ImageLabelModel
     {
         public ImageLabelModel()
         {
             //Subscribe to Active label change callback
-            LabellingResources.ActiveLabel.Subscribe(OnActiveLabelChanged);
+            LabellingResources.ActiveLabel.SubscribeReader(OnActiveLabelChanged);
         }
 
         private void OnActiveLabelChanged()
         {
-            Console.WriteLine("Label Changed");
+            Console.WriteLine("OnActiveLabelCanged: "+ LabellingResources.ActiveLabel.GetActiveLabelText());
         }
     }
 }

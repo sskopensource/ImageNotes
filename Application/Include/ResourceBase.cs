@@ -8,15 +8,41 @@ namespace Include
 {
     public class ResourceBase
     {
-        public static event Action ResourceChanged;
+        protected static event Action ResourceChanged;
+        public delegate void HandleEvent(object str);
+        public static event HandleEvent Handle;
 
-        public static void PublishResources()
+        protected static void HandleResource(object obj)
         {
-            //Invoke event when Counter property is changed
+            Handle?.Invoke(obj);
+        }
+
+        protected static void PublishResources()
+        {
             ResourceChanged?.Invoke();
         }
 
-        public static bool SetAndNotifyIfDifferent(ref string source,string target)
+        public static void SubscribeReader(Action fn)
+        {
+            ResourceChanged += fn;
+        }
+
+        public static void UnsubscribeReader(Action fn)
+        {
+            ResourceChanged -= fn;
+        }
+
+        public static void SubscribeWriter(HandleEvent fn)
+        {
+            Handle += fn;
+        }
+
+        public static void UnsubscribeWriter(HandleEvent fn)
+        {
+            Handle -= fn;
+        }
+
+        protected static bool SetAndNotifyIfDifferent(ref string source, string target)
         {
             if (source != target)
             {
@@ -24,16 +50,6 @@ namespace Include
                 return true;
             }
             return false;
-        }
-
-        public static void Subscribe(Action fn)
-        {
-            ResourceChanged += fn;
-        }
-
-        public static void Unsubscribe(Action fn)
-        {
-            ResourceChanged -= fn;
         }
     }
 }

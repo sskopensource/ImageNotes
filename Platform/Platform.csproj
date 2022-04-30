@@ -57,6 +57,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application\Labelling\Labelling.csproj">
+      <Project>{51200738-40DA-4BD9-AAAD-351BBFEA667C}</Project>
+      <Name>Labelling</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Presenter\Common\Common.csproj">
       <Project>{9BC919A6-3F60-4179-9709-5C21AC97ADDC}</Project>
       <Name>Common</Name>

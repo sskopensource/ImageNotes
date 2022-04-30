@@ -10,11 +10,20 @@ namespace LabellingResources
     //Resource for Active Label
     public class ActiveLabel : ResourceBase
     {
-        private static string _activeLabelText;
+        private static string p_activeLabelText;
+        private static string h_activeLabelText;
 
         public static void SetActiveLabelText(string text)
         {
-            if (SetAndNotifyIfDifferent(ref _activeLabelText, text))
+            if (SetAndNotifyIfDifferent(ref h_activeLabelText, text))
+            {
+                HandleResource(h_activeLabelText);
+            }
+        }
+
+        public static void PublishActiveLabelTextResource(string text)
+        {
+            if (SetAndNotifyIfDifferent(ref p_activeLabelText, text))
             {
                 PublishResources();
             }
@@ -22,7 +31,7 @@ namespace LabellingResources
 
         public static string GetActiveLabelText()
         {
-            return _activeLabelText;
+            return p_activeLabelText;
         }
     }
 }
