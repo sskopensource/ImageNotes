@@ -6,14 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using UiEnums;
 
-namespace ImageLabellingArea
+namespace ControlPanel
 {
-
-    public class ImageLabelModel:ModelBase
+    public class ControlPanelModel:ModelBase
     {
-        private string m_labelText;
-        public ImageLabelModel()
+        private string m_txtBoxText;
+
+        public ControlPanelModel()
         {
+            m_txtBoxText = "";
             //Subscribe to Active label change callback
             LabellingResources.ActiveLabel.SubscribeReader(OnActiveLabelChanged);
         }
@@ -21,15 +22,15 @@ namespace ImageLabellingArea
         private void OnActiveLabelChanged()
         {
             var curLabel = LabellingResources.ActiveLabel.GetActiveLabelText();
-            if(SetAndNotifyIfDifferent(ref m_labelText, curLabel))
+            if (SetAndNotifyIfDifferent(ref m_txtBoxText, curLabel))
             {
                 SetDirtyFlag(DirtyFlag.Refresh);
             }
         }
 
-        public string GetLabelText()
+        public string GetTextBoxText()
         {
-            return m_labelText;
+            return m_txtBoxText;
         }
     }
 }

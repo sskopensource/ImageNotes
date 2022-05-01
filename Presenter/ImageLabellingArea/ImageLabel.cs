@@ -13,9 +13,14 @@ namespace ImageLabellingArea
 {
     public class ImageLabel:TextBox
     {
-        ImageLabellingRegion _parent;
-        public ImageLabel(ImageLabellingRegion parent)
+        private ImageLabellingRegion m_parent;
+        private ImageLabelModel m_model;
+        private bool m_changed;
+
+        public ImageLabel(ImageLabellingRegion parent, ImageLabelModel model)
         {
+            m_changed = true;
+            m_model = model;
             Height = 40;
             MinWidth = 20;
             Height = 40;
@@ -36,23 +41,47 @@ namespace ImageLabellingArea
             parent.PreviewMouseDown += Anchored;
             Select(0, 0);
             TextChanged += OnTextBoxTextChanged;
-            _parent = parent;
-            _parent.labelState = LabelState.Drag;
+            m_parent = parent;
+            m_parent.labelState = LabelState.Drag;
+        }
+
+        public void RefreshLabel()
+        {
+            m_changed = false;
+            if (!this.Dispatcher.CheckAccess())
+            {
+                //If not in UI Thread
+                this.Dispatcher.Invoke(() =>
+                {
+                    Text = m_model.GetLabelText();
+                    CaretIndex = m_model.GetLabelText().Length;
+                });
+            }
+            else
+            {
+                //If UI Thread
+                Text = m_model.GetLabelText();
+                CaretIndex = m_model.GetLabelText().Length;
+            }
         }
 
         private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             //Post Event
-            LabellingResources.ActiveLabel.SetActiveLabelText(Text);
+            if (m_changed)
+            {
+                LabellingResources.ActiveLabel.SetActiveLabelText(Text);
+            }
+            m_changed = true;
         }
 
         private void Anchored(object sender, MouseButtonEventArgs e)
         {
-            if (Text.Length==0 || _parent.labelState!=LabelState.Select) 
+            if (Text.Length==0 || m_parent.labelState!=LabelState.Select) 
             {
                 return;
             }
-            _parent.labelState = LabelState.Anchor;
+            m_parent.labelState = LabelState.Anchor;
             Thickness borderThickness = new Thickness() { Bottom = 0, Left = 0, Right = 0, Top = 0 };
             BorderThickness = borderThickness;
             Keyboard.ClearFocus();
@@ -60,7 +89,7 @@ namespace ImageLabellingArea
 
         private void Selected(object sender, MouseButtonEventArgs e)
         {
-            _parent.labelState = LabelState.Select;
+            m_parent.labelState = LabelState.Select;
             Thickness borderThickness = new Thickness() { Bottom = 2, Left = 2, Right = 2, Top = 2 };
             BorderThickness = borderThickness;
         }

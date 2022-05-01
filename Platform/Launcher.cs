@@ -8,6 +8,7 @@ using ImageLabellingArea;
 using System.Windows;
 using System.Threading;
 using Labelling;
+using ControlPanel;
 
 namespace Platform
 {
@@ -15,7 +16,9 @@ namespace Platform
     {
         public static MainWindowController mainWindow;
         public static ImageLabelRegionController region;
+        public static ControlPanelController controlPanel;
         public static LabellingManager labellingMgr;
+        public static ResourceViewer resViewer;
 
         public static void LoadComponet()
         {
@@ -23,9 +26,26 @@ namespace Platform
             mainWindow = new MainWindowController();
             //Load labelRegion
             region = new ImageLabelRegionController(mainWindow.GetGridView());
+
+            //Load Control Panel
+            controlPanel = new ControlPanelController(mainWindow.GetGridView());
+
             //Show main window
 
             labellingMgr = new LabellingManager();
+
+            Thread viewerThread = new Thread(delegate ()
+            {
+                resViewer = new ResourceViewer();
+                resViewer.Dispatcher.Invoke(new Action(delegate ()
+                {
+                    resViewer.ShowDialog();
+                }));
+            });
+
+            viewerThread.SetApartmentState(ApartmentState.STA); // needs to be STA or throws exception
+            viewerThread.Start();
+
             mainWindow.GetView().ShowDialog();
         }
     }

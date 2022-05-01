@@ -37,6 +37,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,14 +50,22 @@
     <Compile Include="Hosting.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceViewer.xaml.cs">
+      <DependentUpon>ResourceViewer.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </None>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application\Include\Include.csproj">
+      <Project>{eab6800f-9107-4d53-b0dd-ad5b11c6521d}</Project>
+      <Name>Include</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application\LabellingResources\LabellingResources.csproj">
+      <Project>{1e14ebdd-d458-490e-84b3-a922f91742b6}</Project>
+      <Name>LabellingResources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Application\Labelling\Labelling.csproj">
       <Project>{51200738-40DA-4BD9-AAAD-351BBFEA667C}</Project>
       <Name>Labelling</Name>
@@ -64,6 +73,10 @@
     <ProjectReference Include="..\Presenter\Common\Common.csproj">
       <Project>{9BC919A6-3F60-4179-9709-5C21AC97ADDC}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presenter\ControlPanel\ControlPanel.csproj">
+      <Project>{454e1204-2718-447b-ab2c-d714b7829388}</Project>
+      <Name>ControlPanel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Presenter\ImageLabellingArea\ImageLabellingArea.csproj">
       <Project>{151c494c-3ccc-4d0a-babd-a65ec1da1120}</Project>
@@ -73,6 +86,12 @@
       <Project>{6c531dc5-763e-4008-ad10-51c99c64a3ed}</Project>
       <Name>MainWindow</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ResourceViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
