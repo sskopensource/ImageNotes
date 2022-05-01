@@ -31,6 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,10 +41,27 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlPanelController.cs" />
+    <Compile Include="ControlPanelModel.cs" />
+    <Compile Include="ControlPanelView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Include\Include.csproj">
+      <Project>{EAB6800F-9107-4D53-B0DD-AD5B11C6521D}</Project>
+      <Name>Include</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Application\LabellingResources\LabellingResources.csproj">
+      <Project>{1e14ebdd-d458-490e-84b3-a922f91742b6}</Project>
+      <Name>LabellingResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{9bc919a6-3f60-4179-9709-5c21ac97addc}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

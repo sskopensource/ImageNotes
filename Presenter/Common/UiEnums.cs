@@ -14,4 +14,12 @@ namespace UiEnums
         Move,
         None
     }
+
+    public enum DirtyFlag
+    {
+        None,
+        Refresh,
+        RefreshAll,
+        Update
+    }
 }

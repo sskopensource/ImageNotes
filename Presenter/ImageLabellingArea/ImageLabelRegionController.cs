@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ImageLabellingArea
 {
-    public class ImageLabelRegionController
+    public class ImageLabelRegionController:ControllerBase
     {
         private ImageLabellingRegion labelRegion;
 
@@ -16,5 +16,9 @@ namespace ImageLabellingArea
             labelRegion = new ImageLabellingRegion(parentGrid);
         }
 
+        public override void Update()
+        {
+            
+        }
     }
 }
