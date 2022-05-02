@@ -22,7 +22,7 @@ namespace Platform
         public static ResourceViewerWindow resViewer;
 
         // Make it true for showing resource viewer.
-        private static bool showResourceViewer = true;
+        private static bool showResourceViewer = false;
 
         public static void LoadComponet()
         {
