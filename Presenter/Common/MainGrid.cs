@@ -14,7 +14,7 @@ namespace Common
             this.ShowGridLines=true;
         }
 
-        public void SetControlPanel(Canvas child)
+        public void SetControlPanel(StackPanel child)
         {
             SetColumn(child, 1);
             SetRow(child, 1);

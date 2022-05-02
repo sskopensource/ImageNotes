@@ -10,16 +10,14 @@ using System.Windows;
 
 namespace ControlPanel
 {
-    public class ControlPanelView:Canvas
+    public class ControlPanelView:StackPanel
     {
         private TextBox m_txtBox;
         private ControlPanelModel m_model;
-        private bool m_changed;
 
         public ControlPanelView(MainGrid parent, ControlPanelModel model)
         {
             m_model = model;
-            m_changed = true;
             this.Background = Brushes.Black;
             parent.Children.Add(this);
             parent.SetControlPanel(this);
@@ -28,27 +26,21 @@ namespace ControlPanel
             m_txtBox.Height = 30;
             m_txtBox.FontSize = 20;
             m_txtBox.VerticalContentAlignment = VerticalAlignment.Center;
-            m_txtBox.HorizontalAlignment = HorizontalAlignment.Right;
             this.Children.Add(m_txtBox);
             m_txtBox.TextChanged += OnTextBoxTextChanged;
             Thickness margin = new Thickness() { Left = 5, Top=5,Bottom=5, Right=5 };
             m_txtBox.Margin = margin;
-            m_txtBox.Width = 275;
         }
 
         private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             //Post Event
-            if (m_changed)
-            {
-                LabellingResources.ActiveLabel.SetActiveLabelText(m_txtBox.Text);
-            }
-            m_changed = true;
+            LabellingResources.ActiveLabel.SetActiveLabelText(m_txtBox.Text);
         }
 
         public void RefreshControl()
         {
-            m_changed = false;
+         //   m_changed = false;
             if (!this.Dispatcher.CheckAccess())
             {
                 //If not in UI Thread
