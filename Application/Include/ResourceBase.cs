@@ -11,7 +11,7 @@ namespace Include
         protected static event Action ResourceChanged;
         public delegate void HandleEvent(object str);
         public static event HandleEvent Handle;
-
+        
         protected static void HandleResource(object obj)
         {
             Handle?.Invoke(obj);

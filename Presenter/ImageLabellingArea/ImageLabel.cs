@@ -15,11 +15,9 @@ namespace ImageLabellingArea
     {
         private ImageLabellingRegion m_parent;
         private ImageLabelModel m_model;
-        private bool m_changed;
 
         public ImageLabel(ImageLabellingRegion parent, ImageLabelModel model)
         {
-            m_changed = true;
             m_model = model;
             Height = 40;
             MinWidth = 20;
@@ -47,7 +45,6 @@ namespace ImageLabellingArea
 
         public void RefreshLabel()
         {
-            m_changed = false;
             if (!this.Dispatcher.CheckAccess())
             {
                 //If not in UI Thread
@@ -68,11 +65,7 @@ namespace ImageLabellingArea
         private void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             //Post Event
-            if (m_changed)
-            {
-                LabellingResources.ActiveLabel.SetActiveLabelText(Text);
-            }
-            m_changed = true;
+            LabellingResources.ActiveLabel.SetActiveLabelText(Text);
         }
 
         private void Anchored(object sender, MouseButtonEventArgs e)

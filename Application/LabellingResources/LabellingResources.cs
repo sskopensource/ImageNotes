@@ -25,6 +25,7 @@ namespace LabellingResources
         {
             if (SetAndNotifyIfDifferent(ref p_activeLabelText, text))
             {
+                h_activeLabelText = p_activeLabelText;
                 PublishResources();
             }
         }
